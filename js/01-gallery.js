@@ -1,4 +1,4 @@
-//1. Создание и рендер разметки по массиву данных galleryItems и предоставленному шаблону элемента галереи.
+//1. Создание и рендер разметки по массиву данных galleryItems и предоставленному шаблону элемента галереи.+
 // Реализация делегирования на div.gallery и получение url большого изображения.
 // Подключение скрипта и стилей библиотеки модального окна basicLightbox.Используй CDN сервис jsdelivr 
 // и добавь в проект ссылки на минифицированные(.min) файлы библиотеки.
@@ -24,7 +24,7 @@ const galleryMarkup = createGalleryItemsMarkup(galleryItems);
 galleryContainer.insertAdjacentHTML('beforeend', galleryMarkup);
 
 // создание разметки
-console.log(createGalleryItemsMarkup(galleryItems));
+// console.log(createGalleryItemsMarkup(galleryItems));
 
 function createGalleryItemsMarkup(galleryItems) {
     return galleryItems.map(({ preview, original, description }) => {
@@ -45,3 +45,14 @@ function createGalleryItemsMarkup(galleryItems) {
     // console.log(galleryItems);
 }
 
+// // делегированиe и получение url большого изображения
+
+// galleryContainer.addEventListener('click', onGalleryContainerClick);
+
+// function onGalleryContainerClick(evt) {
+//     if (!evt.target.classlist.contains('gallery__image')) {
+//         return;
+// }
+//     evt.preventDefault();
+//     console.log(evn.target);
+// }
