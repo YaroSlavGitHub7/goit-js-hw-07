@@ -9,7 +9,7 @@
 // Ссылка на оригинальное изображение должна храниться в data-атрибуте source на элементе <img>, 
 // и указываться в href ссылки. 
 
-// Обрати внимание на то, что изображение обернуто в ссылку, а значит при клике по умолчанию 
+// Обрати внимание на то, что изображение обернуто в ссылку, а значит при клике по умолчанию +
 // пользователь будет перенаправлен на другую страницу.Запрети это поведение по умолчанию.
 
 // видео Репеты https://www.youtube.com/watch?v=pNxBoxbnTVA&t=3623s (создание КалорсПикер)
@@ -45,14 +45,20 @@ function createGalleryItemsMarkup(galleryItems) {
     // console.log(galleryItems);
 }
 
-// // делегированиe и получение url большого изображения
+// делегированиe и получение url большого изображения
 
-// galleryContainer.addEventListener('click', onGalleryContainerClick);
+galleryContainer.addEventListener('click', onGalleryContainerClick, );
 
-// function onGalleryContainerClick(evt) {
-//     if (!evt.target.classlist.contains('gallery__image')) {
-//         return;
-// }
-//     evt.preventDefault();
-//     console.log(evn.target);
-// }
+function onGalleryContainerClick(evt) {
+    evt.preventDefault(); /*запрет перехода по ссылке*/
+    const onGalleryIimageClick = evt.target.classList.contains('gallery__image');
+        if (!onGalleryIimageClick) { /*кликаем только на ребенка с классом 'gallery__image'*/
+            return;
+        };   
+        // console.log(evt.target.dataset.source);
+    // Использ  модального окна библиотеки basicLightbox
+    const instance = basicLightbox.create(`
+        <img src="${evt.target.dataset.source}" width="800" height="600">
+    `)
+    instance.show();
+}
