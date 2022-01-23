@@ -30,12 +30,8 @@ function createGalleryItemsMarkup(galleryItems) {
         .join('');
 };
 
-let gallery = new SimpleLightbox('.gallery a');
+let gallery = new SimpleLightbox('.gallery a', { captionsData: `alt`, captionDelay: 250,});
 
  gallery.on('show.simplelightbox', function () {
      });
 
-const lightboxFu = new SimpleLightbox(".gallery a", {
-    captionsData: `alt`,
-    captionDelay: 250
-});
